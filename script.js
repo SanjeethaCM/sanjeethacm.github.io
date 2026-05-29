@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // 1. Reveal Animations on Load
     const reveals = document.querySelectorAll('.reveal');
     reveals.forEach(reveal => {
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('mousemove', (e) => {
         const x = e.clientX / window.innerWidth;
         const y = e.clientY / window.innerHeight;
-        
+
         blobs.forEach((blob, index) => {
             const speed = (index + 1) * 20;
             const xOffset = (window.innerWidth / 2 - e.pageX) / speed;
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(response => response.json())
             .then(repos => {
                 dynamicProjects.innerHTML = ''; // Remove loading text
-                
+
                 if (repos.length === 0) {
                     dynamicProjects.innerHTML = '<p>No repositories found.</p>';
                     return;
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     card.className = 'project-card glass-card hover-lift reveal active';
                     card.style.opacity = "1";
                     card.style.transform = "translateY(0)";
-                    
+
                     card.innerHTML = `
                         <div class="project-content">
                             <div class="project-header">
